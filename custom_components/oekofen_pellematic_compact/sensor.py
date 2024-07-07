@@ -403,7 +403,7 @@ class PellematicBinarySensor(BinarySensorEntity):
     @callback
     def _update_state(self):
         current_value = None
-
+        #_LOGGER.debug("_update_state : %s %s", self._name, self._prefix, self._key)
         try:
             current_value = self._hub.data[self._prefix][self._key]["val"]
         except:
@@ -574,6 +574,7 @@ class PellematicSensor(SensorEntity):
     def state(self):
         """Return the state of the sensor."""
         current_value = None
+        #_LOGGER.debug("state : %s %s", self._name, self._prefix, self._key)
         try:
             current_value = self._hub.data[self._prefix][self._key]
             if self._attr_device_class == SensorDeviceClass.TEMPERATURE:
