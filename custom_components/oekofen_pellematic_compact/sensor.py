@@ -403,7 +403,6 @@ class PellematicBinarySensor(BinarySensorEntity):
     @callback
     def _update_state(self):
         current_value = None
-        #_LOGGER.debug("_update_state : %s %s", self._name, self._prefix, self._key)
         try:
             current_value = self._hub.data[self._prefix][self._key]["val"]
         except:
